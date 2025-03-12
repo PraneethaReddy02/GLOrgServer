@@ -1,0 +1,14 @@
+{
+  "name": "glorg-server",
+  "version": "1.0.0",
+  "description": "Server for GLOrgServer to handle user signups and logins",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
