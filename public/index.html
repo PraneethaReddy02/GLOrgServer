@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLeaf Organics</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f5f0;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #2E7D32;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: url('https://th.bing.com/th/id/OIG3.q8b_.8MP_4NwIFAjy.uA?pid=ImgGn') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 80%;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #FFD700;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #FFC107;
+        }
+
+        /* Video, Form, Three.js, & Account Sections */
+        .video-section, .form-section, .threejs-section, .account-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .video-container, .form-container {
+            width: 100%;
+            max-width: 640px;
+            margin: auto;
+        }
+
+        .video-container iframe, .form-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Three.js Section */
+        #threejs-container {
+            width: 100%;
+            height: 500px;
+        }
+
+        /* Google Maps */
+        .map-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+
+        /* Account Section */
+        .account-section {
+            background-color: #e8f5e9;
+            padding: 40px 20px;
+        }
+
+        .account-container {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .account-container .signup-form, 
+        .account-container .login-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .account-container form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .account-container form input[type="email"],
+        .account-container form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .account-container form input[type="submit"] {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .account-container form input[type="submit"]:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Snowflake Animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            background: white;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10px); opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GreenLeaf Organics</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#form">Feedback</a></li>
+                <li><a href="#threejs">3D Experience</a></li>
+                <li><a href="#contact">Find Us</a></li>
+                <li><a href="#account">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Fresh. Local. Organic.</h1>
+            <p>Bringing the best organic produce to your family.</p>
+            <a href="#video" class="cta-btn">Watch Our Video</a>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <h2>Learn More About Organic Living</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Oa2apuOj5R4?si=ce-96khLMtyobrKs" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="form" class="form-section">
+        <h2>Share Your Feedback</h2>
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewHRR9lqqgKDZGALVvLKfs-Sqddd_uW5hT4TwFBokQOFnyYg/viewform?embedded=true" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="threejs" class="threejs-section">
+        <h2>Experience Organic in 3D</h2>
+        <div id="threejs-container"></div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Find Us</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?..." allowfullscreen></iframe>
+        </div>
+
+        <h2>Follow Us on Facebook</h2>
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574186750791&tabs=timeline&width=340&height=500" width="340" height="500"></iframe>
+    </section>
+
+    <section id="account" class="account-section">
+        <h2>Account Access</h2>
+        <div class="account-container">
+            <div class="signup-form">
+                <h3>Sign Up</h3>
+                <form action="/signup" method="POST">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    
+                    <input type="submit" value="Create Account">
+                </form>
+            </div>
+            <div class="login-form">
+                <h3>Log In</h3>
+                <form action="/login" method="POST">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                    
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    
+                    <input type="submit" value="Log In">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.144/build/three.module.js';
+        import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.144/examples/jsm/controls/OrbitControls.js';
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, 500);
+        document.getElementById("threejs-container").appendChild(renderer.domElement);
+
+        const light = new THREE.AmbientLight(0xffffff, 1);
+        scene.add(light);
+
+        const appleGeometry = new THREE.SphereGeometry(1, 32, 32);
+        const appleMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+        const apple = new THREE.Mesh(appleGeometry, appleMaterial);
+        apple.position.set(0, 0, -5);
+        scene.add(apple);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        function animate() {
+            requestAnimationFrame(animate);
+            apple.rotation.y += 0.01;
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        camera.position.z = 5;
+        animate();
+    </script>
+
+</body>
+</html>
